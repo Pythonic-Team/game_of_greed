@@ -1,4 +1,5 @@
 from collections import Counter
+import random
 """
 GameLogic class Handle calculating score for dice roll and Handle rolling dice
 """
@@ -73,6 +74,19 @@ class GameLogic:
             for i in common:
                 score = score + all_states.get(i, 0)
         return score
+    
+    @staticmethod
+    def roll_dice(rolling):
+        """
+        Input : is an integer between 1 and 6.
+        Output : is a tuple with random values between 1 and 6.
+        """
+        roll_list = []
+        for dice in range(rolling): 
+            roll_list.append(random.randint(1,6))
+
+        if len(roll_list)==rolling:
+            return tuple(roll_list)  
 
 
 if __name__ == '__main__':
