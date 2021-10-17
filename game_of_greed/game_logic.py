@@ -1,4 +1,5 @@
 from collections import Counter
+import random 
 class GameLogic:
     def __init__(self):
         pass
@@ -23,7 +24,7 @@ class GameLogic:
         # return most_common_result
       
         if len(dice_roll)==6:
-            
+
 
 
         # if len(dice_roll)==1 and dice_roll[0]==5: 
@@ -47,6 +48,20 @@ class GameLogic:
         #     return dice_roll[0]*100  
         # elif target==3 and condition==6:
         #     return dice_roll[0]*100 
+
+    
+    @staticmethod
+    def roll_dice(rolling):
+        """
+        Input : is an integer between 1 and 6.
+        Output : is a tuple with random values between 1 and 6.
+        """
+        roll_list = []
+        for dice in rolling: 
+            roll_list.append(random.radiant(1,6))
+
+        if roll_list==rolling:
+            return  tuple(roll_list)  
 if __name__ == "__main__":
     instance_one=GameLogic()
     print(instance_one.calculate_score((1,2,4,4,4,5))) 
