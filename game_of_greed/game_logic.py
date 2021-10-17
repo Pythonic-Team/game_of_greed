@@ -23,7 +23,7 @@ class GameLogic:
         most_common_result=counter.most_common()
         # return most_common_result
       
-        if len(dice_roll)==6:
+    
 
 
 
@@ -49,7 +49,6 @@ class GameLogic:
         # elif target==3 and condition==6:
         #     return dice_roll[0]*100 
 
-    
     @staticmethod
     def roll_dice(rolling):
         """
@@ -57,14 +56,17 @@ class GameLogic:
         Output : is a tuple with random values between 1 and 6.
         """
         roll_list = []
-        for dice in rolling: 
-            roll_list.append(random.radiant(1,6))
+        for dice in range(rolling): 
+            roll_list.append(random.randint(1,6))
 
-        if roll_list==rolling:
-            return  tuple(roll_list)  
+        if len(roll_list)==rolling:
+            return tuple(roll_list)  
+
+    
 if __name__ == "__main__":
     instance_one=GameLogic()
-    print(instance_one.calculate_score((1,2,4,4,4,5))) 
+    # print(instance_one.calculate_score((1,2,4,4,4,5))) 
+    print (instance_one.roll_dice(5))
             
 
 
