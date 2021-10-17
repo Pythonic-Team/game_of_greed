@@ -4,6 +4,7 @@ import random
 GameLogic class Handle calculating score for dice roll and Handle rolling dice
 """
 
+
 class GameLogic:
     """
     calculate_score static method
@@ -74,7 +75,7 @@ class GameLogic:
             for i in common:
                 score = score + all_states.get(i, 0)
         return score
-    
+
     @staticmethod
     def roll_dice(rolling):
         """
@@ -82,15 +83,13 @@ class GameLogic:
         Output : is a tuple with random values between 1 and 6.
         """
         roll_list = []
-        for dice in range(rolling): 
-            roll_list.append(random.randint(1,6))
+        for dice in range(rolling):
+            roll_list.append(random.randint(1, 6))
 
-        if len(roll_list)==rolling:
-            return tuple(roll_list)  
+        if len(roll_list) == rolling:
+            return tuple(roll_list)
 
 
 if __name__ == '__main__':
     instance = GameLogic()
     print(instance.calculate_score((2, 2, 3, 3, 6, 6)))
-
-
