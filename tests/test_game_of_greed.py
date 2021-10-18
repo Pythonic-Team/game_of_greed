@@ -1,22 +1,32 @@
 import pytest
 from game_of_greed.game_logic import GameLogic
+from game_of_greed import __version__
+
+
+def test_version():
+    assert __version__ == '0.1.0'
+
 
 pytestmark = [pytest.mark.version_1]
+
 
 def test_single_five():
     actual = GameLogic.calculate_score((5,))
     expected = 50
     assert actual == expected
 
+
 def test_single_one():
     actual = GameLogic.calculate_score((1,))
     expected = 100
     assert actual == expected
 
+
 def test_two_fives():
     actual = GameLogic.calculate_score((5, 5))
     expected = 100
     assert actual == expected
+
 
 def test_two_ones():
     actual = GameLogic.calculate_score((1, 1))
@@ -29,6 +39,7 @@ def test_one_and_five():
     expected = 150
     assert actual == expected
 
+
 def test_zilch():
     actual = GameLogic.calculate_score((2,))
     expected = 0
@@ -39,6 +50,7 @@ def test_three_fives():
     actual = GameLogic.calculate_score((5, 5, 5, 2, 2, 3))
     expected = 500
     assert actual == expected
+
 
 def test_three_ones():
     actual = GameLogic.calculate_score((1, 1, 1, 2, 3, 4))
@@ -62,6 +74,7 @@ def test_three_of_a_kind():
     actual = GameLogic.calculate_score((2, 2, 2))
     expected = 200
     assert actual == expected
+
 
 def test_four_of_a_kind():
     actual = GameLogic.calculate_score((2, 2, 2, 2))
@@ -133,7 +146,6 @@ def test_six_ones():
         ((1, 1, 1, 2, 2, 2), 1200),
     ],
 )
-
 def test_all(test_input, expected):
     actual = GameLogic.calculate_score(test_input)
     assert actual == expected

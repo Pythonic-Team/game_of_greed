@@ -58,7 +58,6 @@ Unit testing process will be done by
 
 
 ```
-cd ..
 poetry run pytest
 ```
 
@@ -66,8 +65,10 @@ poetry run pytest
 
 ## Change Log
 
-* Iniliazation of project  - 17 Oct 2021
----
+* Iniliazation of project  - 17 Oct 2021 by Jehad
+* Calculate score functionality created -  17 Oct 2021 by Jehad and Duaa
+* Roll Dice Functionality created - 17 Oct 2021 by Dua
+* Banker Functionaliy created - 17 Oct 2021 by Tahany and Ashraf
 
 ## Authors
 
@@ -76,3 +77,7 @@ poetry run pytest
 #### Tahany Ali
 #### Ashraf Obeidat
 ---
+
+# Pull Requests List
+
+Pull Number #1 : [Pull_1](https://github.com/Pythonic-Team/game_of_greed/pull/2)
