@@ -91,4 +91,7 @@ class GameLogic:
             if temp[item] < 0:
                 return False
         return True
+    @staticmethod
+    def get_scorers(test_input):
+        return (filter(lambda x : x == 1 or x == 5,test_input))
         
