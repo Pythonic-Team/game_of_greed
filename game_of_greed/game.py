@@ -1,3 +1,4 @@
+
 from game_of_greed.game_logic import GameLogic
 from game_of_greed.banker import Banker
 # from game_logic import GameLogic
@@ -24,6 +25,13 @@ class Game():
             while True:
                 if not self.cheated:
                     print(f"Rolling {self.remain_dice} dice...")
+                
+                if self.round ==5:
+                    print("****************************************")
+                    print("**        Zilch!!! Round over         **")
+                    print("****************************************")
+                    print(f"You banked {banker.shelved} points in round {self.round}")
+
                 dice = roller(self.remain_dice)
                 self.str_dice = ' '.join(map(str, dice))
                 print(f'*** {self.str_dice} ***')
@@ -34,9 +42,9 @@ class Game():
                         f"Thanks for playing. You earned {banker.balance} points")
                     return
                 else:
-                    shelf = [n for n in prompt if n != ' ']
+                    shelf = [int(n) for n in prompt if n != ' ']
                     current_dice = Counter(dice)
-                    if GameLogic.validate_keepers(current_dice, shelf):
+                    if not GameLogic.validate_keepers(current_dice, shelf):
                         print("Cheater!!! Or possibly made a typo...")
                         self.cheated = True
                         continue
@@ -55,15 +63,6 @@ class Game():
                         self.remain_dice = 6
                         break
                     elif prompt == 'r':
-                        shelf = [n for n in prompt if n != ' ']
-                        x = banker.shelf(GameLogic.calculate_score(prompt))
-                        print(x)
-                        if x == 0 and self.remain_dice == 2:
-
-                            print("****************************************")
-                            print("**        Zilch!!! Round over         **")
-                            print("****************************************")
-                            continue
                         self.remain_dice = len(dice) - len(shelf)
                         if not self.remain_dice:
                             self.remain_dice = 6
