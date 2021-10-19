@@ -12,7 +12,7 @@ class Game():
         self.remain_dice = 6
         self.str_dice = ''
         self.fire = False
-        self.cheated=False
+        self.cheated = False
 
     def play(self, roller=GameLogic.roll_dice):
         print("Welcome to Game of Greed\n(y)es to play or (n)o to decline")
@@ -26,18 +26,21 @@ class Game():
                 if not self.cheated:
                     print(f"Rolling {self.remain_dice} dice...")
                 
-                if self.round ==5:
-                    print("****************************************")
-                    print("**        Zilch!!! Round over         **")
-                    print("****************************************")
-                    print(f"You banked {banker.shelved} points in round {self.round}")
-
                 dice = roller(self.remain_dice)
                 self.str_dice = ' '.join(map(str, dice))
                 print(f'*** {self.str_dice} ***')
+
+                if not GameLogic.calculate_score(dice):
+                    print(
+                        "****************************************\n**        Zilch!!! Round over         **\n****************************************")
+                    print(f"You banked {0} points in round {self.round}")
+                    print(f"Total score is {banker.balance} points")
+                    self.round += 1
+                    self.remain_dice = 6
+                    break
                 print('Enter dice to keep, or (q)uit:')
                 prompt = input("> ").lower()
-                if prompt == 'q' or prompt == 'quit':
+                if prompt == 'q':
                     print(
                         f"Thanks for playing. You earned {banker.balance} points")
                     return
