@@ -3,8 +3,6 @@ import random
 """
 GameLogic class Handle calculating score for dice roll and Handle rolling dice
 """
-
-
 class GameLogic:
     """
     calculate_score static method
@@ -59,9 +57,7 @@ class GameLogic:
         score = 0
         counter = Counter(num)
         common = counter.most_common()
-
         flag = len({g for f, g in common}) <= 1
-
         print(len(common), flag)
         if len(num) == 6 and len(common) == 2:
             score = 1200
@@ -75,7 +71,6 @@ class GameLogic:
             for i in common:
                 score = score + all_states.get(i, 0)
         return score
-
     @staticmethod
     def roll_dice(rolling):
         """
@@ -85,11 +80,8 @@ class GameLogic:
         roll_list = []
         for dice in range(rolling):
             roll_list.append(random.randint(1, 6))
-
         if len(roll_list) == rolling:
             return tuple(roll_list)
-
-
 if __name__ == '__main__':
     instance = GameLogic()
     print(instance.calculate_score((2, 2, 3, 3, 6, 6)))
