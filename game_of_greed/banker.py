@@ -16,8 +16,4 @@ class Banker:
       return self.balance
   def clear_shelf(self):
       self.shelved=0
-bank1=Banker()
-print(bank1.shelf(20))
-print(bank1.shelf(100))
-print(bank1.bank())
-print(bank1.clear_shelf())
+
