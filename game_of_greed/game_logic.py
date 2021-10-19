@@ -92,4 +92,4 @@ class GameLogic:
 
 if __name__ == '__main__':
     instance = GameLogic()
-    print(instance.calculate_score((2, 2, 3, 3, 6, 6)))
+    print(instance.calculate_score(2, 2, 3, 3, 6, 6))
