@@ -55,8 +55,6 @@ Unit testing process will be done by
 
 ```
 
-
-
 ```
 poetry run pytest
 ```
@@ -65,16 +63,28 @@ poetry run pytest
 
 ## Change Log
 
-* Iniliazation of project  - 17 Oct 2021 by Jehad
-* Calculate score functionality created -  17 Oct 2021 by Jehad and Duaa
-* Roll Dice Functionality created - 17 Oct 2021 by Dua
-* Banker Functionaliy created - 17 Oct 2021 by Tahany and Ashraf
+**18 Oct 2021**
+* Iniliazation of project
+* Calculate score functionality created 
+* Roll Dice Functionality created
+* Banker Functionaliy created
+
+**19 Oct 2021** 
+* simulate rolling between 1 and 6 dice
+* allow user to set aside dice each roll
+* allow “banking” current score or rolling again.
+* keep track of total score
+* keep track of current round
+* automated tests to ensure proper operation
 
 ## Authors
 
 #### Jehad Abu Awwwad
+
 #### Duaa Jaradat
+
 #### Tahany Ali
+
 #### Ashraf Obeidat
 ---
 

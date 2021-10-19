@@ -81,8 +81,17 @@ class GameLogic:
             roll_list.append(random.randint(1, 6))
         if len(roll_list) == rolling:
             return tuple(roll_list)
-
-
-if __name__ == '__main__':
-    instance = GameLogic()
-    print(instance.calculate_score(2, 2, 3, 3, 6, 6))
+    @staticmethod
+    def validate_keepers(roll, keepers):
+        temp = dict(Counter(roll))
+        for item in keepers:
+            if item not in temp.keys():
+                return False
+            temp[item]-=1
+            if temp[item] < 0:
+                return False
+        return True
+    @staticmethod
+    def get_scorers(test_input):
+        return (filter(lambda x : x == 1 or x == 5,test_input))
+        

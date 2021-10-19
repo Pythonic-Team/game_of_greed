@@ -1,5 +1,9 @@
 from game_of_greed.game_logic import GameLogic
 from game_of_greed.banker import Banker
+# from game_logic import GameLogic
+# from banker import Banker
+from collections import Counter
+
 
 class Game():
     def __init__(self):
@@ -7,7 +11,9 @@ class Game():
         self.remain_dice = 6
         self.str_dice = ''
         self.fire = False
-    def play(self, roller = GameLogic.roll_dice):
+        self.cheated=False
+
+    def play(self, roller=GameLogic.roll_dice):
         print("Welcome to Game of Greed\n(y)es to play or (n)o to decline")
         choice = input('> ').lower()
         if choice != 'n' or not 'q':
@@ -16,9 +22,10 @@ class Game():
         while self.fire:
             print(f'Starting round {self.round}')
             while True:
-                print(f"Rolling {self.remain_dice} dice...")
+                if not self.cheated:
+                    print(f"Rolling {self.remain_dice} dice...")
                 dice = roller(self.remain_dice)
-                self.str_dice = ' '.join(map(str, dice)) 
+                self.str_dice = ' '.join(map(str, dice))
                 print(f'*** {self.str_dice} ***')
                 print('Enter dice to keep, or (q)uit:')
                 prompt = input("> ").lower()
@@ -27,9 +34,15 @@ class Game():
                         f"Thanks for playing. You earned {banker.balance} points")
                     return
                 else:
-                    shelf = [int(n) for n in prompt if n != ' ']
+                    shelf = [n for n in prompt if n != ' ']
+                    current_dice = Counter(dice)
+                    if GameLogic.validate_keepers(current_dice, shelf):
+                        print("Cheater!!! Or possibly made a typo...")
+                        self.cheated = True
+                        continue
                     banker.shelf(GameLogic.calculate_score(shelf))
-                    print(f"You have {banker.shelved} unbanked points and {len(dice) - len(shelf)} dice remaining")
+                    print(
+                        f"You have {banker.shelved} unbanked points and {len(dice) - len(shelf)} dice remaining")
                     print("(r)oll again, (b)ank your points or (q)uit:")
                     prompt = input("> ")
                     if prompt == "b":
@@ -42,14 +55,26 @@ class Game():
                         self.remain_dice = 6
                         break
                     elif prompt == 'r':
+                        shelf = [n for n in prompt if n != ' ']
+                        x = banker.shelf(GameLogic.calculate_score(prompt))
+                        print(x)
+                        if x == 0 and self.remain_dice == 2:
+
+                            print("****************************************")
+                            print("**        Zilch!!! Round over         **")
+                            print("****************************************")
+                            continue
                         self.remain_dice = len(dice) - len(shelf)
                         if not self.remain_dice:
                             self.remain_dice = 6
                             continue
                         continue
                     elif prompt == 'q':
-                        print(f"Thanks for playing. You earned {banker.balance} points")
+                        print(
+                            f"Thanks for playing. You earned {banker.balance} points")
         print('OK. Maybe another time')
+
+
 if __name__ == "__main__":
     g = Game()
     g.play()
