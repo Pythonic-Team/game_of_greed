@@ -81,3 +81,14 @@ class GameLogic:
             roll_list.append(random.randint(1, 6))
         if len(roll_list) == rolling:
             return tuple(roll_list)
+    @staticmethod
+    def validate_keepers(roll, keepers):
+        temp = dict(Counter(roll))
+        for item in keepers:
+            if item not in temp.keys():
+                return False
+            temp[item]-=1
+            if temp[item] < 0:
+                return False
+        return True
+        
