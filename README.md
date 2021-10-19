@@ -77,6 +77,13 @@ poetry run pytest
 * keep track of current round
 * automated tests to ensure proper operation
 
+* Application should implement features from versions 1 and 2
+* handle setting aside scoring dice 
+* continuing turn with remaining dice.
+* handle when cheating occurs, Or just typos.
+* allow user to continue rolling with 6 new dice when all dice have scored in current turn.
+* Handle zilch (No points for round, and round is over)
+
 ## Authors
 
 #### Jehad Abu Awwwad
