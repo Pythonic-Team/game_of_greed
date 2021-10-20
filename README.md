@@ -102,4 +102,4 @@ poetry run pytest
 
 # Pull Requests List
 
-Pull Number #1 : [Pull_1](https://github.com/Pythonic-Team/game_of_greed/pull/2)
+Pull : [Pull_1](https://github.com/Pythonic-Team/game_of_greed/pull/3)
