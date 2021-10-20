@@ -77,6 +77,11 @@ poetry run pytest
 * keep track of current round
 * automated tests to ensure proper operation
 
+**20 Oct 2021**
+* Adding bots.py 
+* Factorization of Game.py with functional programming way
+* Costamization of bot configuration
+
 * Application should implement features from versions 1 and 2
 * handle setting aside scoring dice 
 * continuing turn with remaining dice.
