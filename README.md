@@ -4,7 +4,7 @@
 
 ### We are deployed on deployed!
 
-Link > will come at the end of week
+You can downlod the Repo and follow the instructions in the Getting Started Part
 
 ---
 
@@ -36,26 +36,28 @@ $ git clone https://github.com/Pythonic-Team/game_of_greed.git
 
 Once downloaded, activate your virtual environment and run by ____________
 
-```
-cd game_of_greed
+```python
 poetry shell
 poetry install
 ```
 
 The poetry tools will automatically install any dependencies. Before running the application.
 
-```
-Run Your Game by
+### Run Your Game by
+
+```python
+python -m game_of_greed.game
 ```
 
-python game_of_greed/game_logic.py
+### Run Your Game using bot
 
+```python
+python -m bots
 ```
-Unit testing process will be done by
 
-```
+### Unit testing process will be done by
 
-```
+```python
 poetry run pytest
 ```
 
@@ -78,8 +80,8 @@ poetry run pytest
 * automated tests to ensure proper operation
 
 **20 Oct 2021**
-* Adding bots.py 
-* Factorization of Game.py with functional programming way
+* Adding bot module
+* Factorization of Game module with functional programming way
 * Costamization of bot configuration
 
 * Application should implement features from versions 1 and 2
@@ -98,8 +100,5 @@ poetry run pytest
 #### Tahany Ali
 
 #### Ashraf Obeidat
+
 ---
-
-# Pull Requests List
-
-Pull : [Pull_1](https://github.com/Pythonic-Team/game_of_greed/pull/3)

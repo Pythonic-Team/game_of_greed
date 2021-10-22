@@ -134,7 +134,7 @@ class PythonicTeam(BaseBot):
         if self.dice_remaining < 2:
             self.number_of_turns += 1
             return 'b'
-        elif self.number_of_turns >= 50:
+        elif self.number_of_turns >= 81:
             return 'q'
         else:
             return 'r'
@@ -147,6 +147,6 @@ class PythonicTeam(BaseBot):
 
 
 if __name__ == "__main__":
-    num_games = 100
+    num_games = 81
     # NervousNellie.play(num_games)
     PythonicTeam.play(num_games)
