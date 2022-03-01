@@ -93,7 +93,7 @@ poetry run pytest
 
 ## Authors
 
-#### Jehad Abu Awwwad
+#### Jad Abu Awwwad
 
 #### Duaa Jaradat
 
